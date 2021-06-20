@@ -3,7 +3,7 @@
 // @namespace   https://github.com/gslin/openstreetmap-on-rent.591.com.tw
 // @match       https://rent.591.com.tw/home/*
 // @grant       GM_xmlhttpRequest
-// @version     0.20210617.1
+// @version     0.20210620.0
 // @author      Gea-Suan Lin <gslin@gslin.com>
 // @description Embed OpenStreetMap on rent.591.com.tw.
 // @require     https://unpkg.com/leaflet@1.7.1/dist/leaflet.js
@@ -21,7 +21,7 @@
                     return;
                 }
 
-                let addr_el = document.querySelector('div.address span + span');
+                let addr_el = document.querySelector('div.address * + span');
                 if (!addr_el) {
                     return;
                 }
