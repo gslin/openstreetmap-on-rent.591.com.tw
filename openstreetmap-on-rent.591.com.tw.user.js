@@ -3,7 +3,7 @@
 // @namespace   https://github.com/gslin/openstreetmap-on-rent.591.com.tw
 // @match       https://rent.591.com.tw/home/*
 // @grant       GM_xmlhttpRequest
-// @version     0.20210620.0
+// @version     0.20210620.1
 // @author      Gea-Suan Lin <gslin@gslin.com>
 // @description Embed OpenStreetMap on rent.591.com.tw.
 // @require     https://unpkg.com/leaflet@1.7.1/dist/leaflet.js
@@ -12,6 +12,8 @@
 
 (() => {
     'use strict';
+
+    const icon = L.icon({iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png'});
 
     let sem = 0;
     let ob = new window.MutationObserver(mutations => {
@@ -52,6 +54,7 @@
 
                         let map = L.map(map_el).setView([r0.lat, r0.lon], 17);
                         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+                        L.marker([r0.lat, r0.lon], {icon: icon}).addTo(map);
                     },
                     url: url,
                 });
