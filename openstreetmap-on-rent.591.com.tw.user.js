@@ -3,7 +3,7 @@
 // @namespace   https://github.com/gslin/openstreetmap-on-rent.591.com.tw
 // @match       https://rent.591.com.tw/home/*
 // @grant       GM_xmlhttpRequest
-// @version     0.20210620.1
+// @version     0.20210707.0
 // @author      Gea-Suan Lin <gslin@gslin.com>
 // @description Embed OpenStreetMap on rent.591.com.tw.
 // @require     https://unpkg.com/leaflet@1.7.1/dist/leaflet.js
@@ -36,6 +36,9 @@
 
                 let url = 'https://nominatim.openstreetmap.org/search?q=' + encodeURIComponent(addr) + '&format=json';
                 GM_xmlhttpRequest({
+                    headers: {
+                        'User-Agent': 'OpenStreetMapOnRent591ComTw/' + GM_info.script.version + ' (https://github.com/gslin/openstreetmap-on-rent.591.com.tw)',
+                    },
                     method: 'GET',
                     onload: res => {
                         let r = JSON.parse(res.responseText);
