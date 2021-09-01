@@ -3,7 +3,7 @@
 // @namespace   https://github.com/gslin/openstreetmap-on-rent.591.com.tw
 // @match       https://rent.591.com.tw/home/*
 // @grant       GM_xmlhttpRequest
-// @version     0.20210724.0
+// @version     0.20210901.0
 // @author      Gea-Suan Lin <gslin@gslin.com>
 // @description Embed OpenStreetMap on rent.591.com.tw.
 // @require     https://unpkg.com/leaflet@1.7.1/dist/leaflet.js
@@ -53,7 +53,7 @@
                         // Handle z-index issue.
                         let custom_css_el = document.createElement('style');
                         custom_css_el.setAttribute('type', 'text/css');
-                        custom_css_el.innerHTML = '.leaflet-pane{z-index:1;}';
+                        custom_css_el.innerHTML = '.leaflet-pane{z-index:1;} .leaflet-control,.leaflet-bottom.leaflet-right{z-index:2}';
                         document.getElementsByTagName('head')[0].appendChild(custom_css_el);
 
                         // leaflet map element
